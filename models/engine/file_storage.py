@@ -2,7 +2,7 @@
 """ module point 5 file_storage """
 import json
 import models
-from models.base_model import BaseModel
+from models import *
 
 
 class FileStorage:
@@ -37,8 +37,12 @@ class FileStorage:
             with open(self.__file_path, "r", encoding='utf-8') as f:
                 o_dict = json.load(f)
                 for key, value in o_dict.items():
-                    value.pop("__class__")
-                    bmObj = BaseModel(**value)
+                    cl = key.split(".")
+                    value.pop("__class__")                    
+                    if cl[0] == "BaseModel":
+                        bmObj = BaseModel(**value)
+                    if cl[0] == "User":      
+                        bmObj = User(**value)
                     self.new(bmObj)
         except:
             pass

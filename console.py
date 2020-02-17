@@ -3,6 +3,7 @@
 import cmd
 import shlex
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -10,7 +11,7 @@ class HBNBCommand(cmd.Cmd):
     """HBNBCommand class"""
 
     prompt = "(hbnb) "
-    __class_list = ["BaseModel"]
+    __class_list = ["BaseModel", "User"]
 
     def do_quit(self):
         """Quit command to exit the program"""
@@ -33,7 +34,10 @@ class HBNBCommand(cmd.Cmd):
         if line not in self.__class_list:
             print("** class doesn't exist **")
         else:
-            new_model = BaseModel()
+            if line == "BaseModel":	
+                new_model = BaseModel()
+            if line == "User":
+                new_model = User()	    
             new_model.save()
             print(new_model.id)
 
