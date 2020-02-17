@@ -38,11 +38,21 @@ class FileStorage:
                 o_dict = json.load(f)
                 for key, value in o_dict.items():
                     cl = key.split(".")
-                    value.pop("__class__")                    
+                    value.pop("__class__")
                     if cl[0] == "BaseModel":
                         bmObj = BaseModel(**value)
-                    if cl[0] == "User":      
+                    if cl[0] == "User":
                         bmObj = User(**value)
+                    if cl[0] == "State":
+                        bmObj = State(**value)
+                    if cl[0] == "City":
+                        bmObj = City(**value)
+                    if cl[0] == "Amenity":
+                        bmObj = Amenity(**value)
+                    if cl[0] == "Place":
+                        bmObj = Place(**value)
+                    if cl[0] == "Review":
+                        bmObj = Review(**value)
                     self.new(bmObj)
         except:
             pass

@@ -4,6 +4,11 @@ import cmd
 import shlex
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
@@ -21,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_EOF(self, line):
-        """Quit command to exit the program"""        
+        """Quit command to exit the program"""
         return True
 
     def do_create(self, line):
@@ -34,10 +39,20 @@ class HBNBCommand(cmd.Cmd):
         if line not in self.__class_list:
             print("** class doesn't exist **")
         else:
-            if line == "BaseModel":	
+            if line == "BaseModel":
                 new_model = BaseModel()
             if line == "User":
-                new_model = User()	    
+                new_model = User()
+            if line == "State":
+                new_model = State()
+            if line == "City":
+                new_model = City()
+            if line == "Amenity":
+                new_model = Amenity()
+            if line == "Place":
+                new_model = Place()
+            if line == "Review":
+                new_model = Review()
             new_model.save()
             print(new_model.id)
 
@@ -121,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
             try:
                 key = args[2]
                 value = args[3]
-                dict2 = { key: value }
+                dict2 = {key: value}
                 models[bm_key].__dict__.update(dict2)
                 print(models[bm_key])
             except:

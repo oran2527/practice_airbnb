@@ -8,7 +8,6 @@ from datetime import datetime
 class BaseModel:
     """class BaseModel"""
 
-
     def __init__(self, *args, **kwargs):
         """init function"""
         if kwargs != {}:
@@ -26,7 +25,6 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)
 
-
     def __str__(self):
         """str function"""
         s = "[{}] ({}) {}\
@@ -35,7 +33,7 @@ class BaseModel:
 
     def to_dict(self):
         """to_dict function"""
-        
+
         update = self.updated_at
         create = self.created_at
 
