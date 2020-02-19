@@ -38,7 +38,7 @@ State
 
 If you want to create an instance of a specific class, you have to use this:
 
-structure : create <Class>
+structure : create --Class--
 
 example command interpreter : create BaseModel
 
