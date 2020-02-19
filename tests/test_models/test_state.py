@@ -2,6 +2,7 @@
 """unittests for this project"""
 import unittest
 from models.state import State
+import datetime
 
 
 class TestState(unittest.TestCase):
@@ -17,3 +18,8 @@ class TestState(unittest.TestCase):
         """Test instance"""
         b1 = State()
         self.assertIsInstance(b1, State)
+
+    def test_update(self):
+        """Test update"""
+        b1 = State()
+        self.assertEqual(b1.updated_at.strftime("%b %d %Y %H:%M"), datetime.datetime.now().strftime("%b %d %Y %H:%M"))
