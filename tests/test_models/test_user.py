@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """unittests for this project"""
 import unittest
+import os
 from models.user import User
 
 
@@ -26,3 +27,8 @@ class TestUser(unittest.TestCase):
         """Test validation instance"""
         b1 = User()
         self.assertIsInstance(b1, User)
+
+    def test_access(self):
+        """Test access file"""
+        access = os.access("models/user.py", os.R_OK)
+        self.assertTrue(access, "Read permissions")
