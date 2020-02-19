@@ -13,4 +13,4 @@ class TestBaseModel(unittest.TestCase):
         b1.name = "Holberton"
         b1.my_number = 89
         self.assertAlmostEqual(b1.name, "Holberton")
-        self.assertAlmostEqual(b1.my_number, 89)
+        self.assertAlmostEqual(b1.my_number, 89) 	
