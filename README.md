@@ -92,6 +92,48 @@ Note : the output will be different when you prove it
 
 ## destroy a specific instance
 
-If you want to destroy a specific class, you have to use this:
+If you want to destroy a specific instance, you have to use this:
 
-structure : 
+structure : destroy --Class-- --id--
+
+example command interpreter : destroy BaseModel 49faff9a-6318-451f-87b6-910505c55907
+
+output : No output
+
+Note : If you wanna confirm your deletion, use show command
+
+## update a specific instance
+
+If you want to update a specific instance, you have to use this:
+
+structure : update --Class-- --id-- --attribute name-- "--attribute value--"
+
+example command interpreter : update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"
+
+example output : 
+
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
+
+Note : The output will be different when you prove it.
+
+## quit the command interpreter
+
+If you want to quit the console, you have to use this:
+
+structure : quit
+
+example command interpreter : quit
+
+output : guillaume@ubuntu:~/AirBnB$ 
+
+Note : the output will be different when you prove it
+
+## find help about a command interpreter
+
+If you want to get information about a command, you have to use this:
+
+structure : help --Command--
+
+example command interpreter : help quit
+
+output : Quit command to exit the program
