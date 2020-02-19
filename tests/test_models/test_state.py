@@ -12,3 +12,8 @@ class TestState(unittest.TestCase):
         b1 = State()
         b1.name = "Lousiana"        
         self.assertAlmostEqual(b1.name, "Lousiana")
+
+    def test_instance(self):
+        """Test instance"""
+        b1 = State()
+        self.assertIsInstance(b1, State)
