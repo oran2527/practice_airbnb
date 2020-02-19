@@ -44,6 +44,54 @@ example command interpreter : create BaseModel
 
 example output : 49faff9a-6318-451f-87b6-910505c55907 
 
-The output will be different when you prove it
+Note : The output will be different when you prove it. The output is the id of the created instance.
 
+## request all the instances
 
+If you want to request all the instances, you have to use this:
+
+structure : all
+
+example command interpreter : all
+
+output : 
+
+[BaseModel] (af9b4cbd-2ce1-4e6e-8259-f578097dd15f) {'id': 'af9b4cbd-2ce1-4e6e-8259-f578097dd15f', 'created_at': datetime.datetime(2017, 9, 28, 21, 11, 12, 971521), 'updated_at': datetime.datetime(2017, 9, 28, 21, 11, 12, 971544)}
+
+[User] (38f22813-2753-4d42-b37c-57a17f1e4f88) {'id': '38f22813-2753-4d42-b37c-57a17f1e4f88', 'created_at': datetime.datetime(2017, 9, 28, 21, 11, 42, 848279), 'updated_at': datetime.datetime(2017, 9, 28, 21, 11, 42, 848291), 'email': 'airbnb@holbertonshool.com', 'first_name': 'Betty', 'last_name': 'Holberton', 'password': 'root'}
+
+Note : the output will be different when you prove it
+
+## request all the instances of a specific class
+
+If you want to request all the instances of a specific class, you have to use this:
+
+structure : all --Class--
+
+example command interpreter : all BaseModel
+
+output : 
+
+[BaseModel] (af9b4cbd-2ce1-4e6e-8259-f578097dd15f) {'id': 'af9b4cbd-2ce1-4e6e-8259-f578097dd15f', 'created_at': datetime.datetime(2017, 9, 28, 21, 11, 12, 971521), 'updated_at': datetime.datetime(2017, 9, 28, 21, 11, 12, 971544)}
+
+Note : the output will be different when you prove it
+
+## show a specific instance
+
+If you want to show a specific instance, you have to use this:
+
+structure : show --Class-- --id--
+
+example command interpreter : show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+
+output : 
+
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}
+
+Note : the output will be different when you prove it
+
+## destroy a specific instance
+
+If you want to destroy a specific class, you have to use this:
+
+structure : 
