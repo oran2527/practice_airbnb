@@ -10,6 +10,34 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
+    __count_user = 0
+    __count_amenity = 0
+    __count_city = 0
+    __count_place = 0
+    __count_review = 0
+    __count_state = 0
+    __count_base = 0
+
+    def c_user(self):
+        return self.__count_user
+
+    def c_amenity(self):
+        return self.__count_amenity
+
+    def c_city(self):
+        return self.__count_city
+
+    def c_place(self):
+        return self.__count_place
+
+    def c_review(self):
+        return self.__count_review
+
+    def c_state(self):
+        return self.__count_state
+
+    def c_base(self):
+        return self.__count_base
 
     def all(self):
         """all function"""
@@ -21,6 +49,27 @@ class FileStorage:
 
         objName = "{}.{}".format(type(obj).__name__, obj.id)
         self.__objects[objName] = obj
+	
+        if type(obj).__name__ == "User":
+           FileStorage.__count_user = FileStorage.__count_user + 1
+        
+        if type(obj).__name__ == "Amenity":
+           FileStorage.__count_amenity = FileStorage.__count_amenity + 1
+
+        if type(obj).__name__ == "City":
+           FileStorage.__count_city = FileStorage.__count_city + 1
+
+        if type(obj).__name__ == "Place":
+           FileStorage.__count_place = FileStorage.__count_place + 1
+
+        if type(obj).__name__ == "Review":
+           FileStorage.__count_review = FileStorage.__count_review + 1
+
+        if type(obj).__name__ == "State":
+           FileStorage.__count_state = FileStorage.__count_state + 1
+
+        if type(obj).__name__ == "BaseModel":
+           FileStorage.__count_base = FileStorage.__count_base + 1
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""

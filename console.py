@@ -2,6 +2,7 @@
 """module point 6 cmd class"""
 import cmd
 import shlex
+import sys
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -18,6 +19,29 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     __class_list = ["BaseModel", "User", "State", "City", "Amenity\
 ", "Place", "Review"]
+
+    def default(self, inp):
+        if inp == "User.count()":
+            print(storage.c_user())
+
+        if inp == "Amenity.count()":
+            print(storage.c_amenity())
+
+        if inp == "Place.count()":
+            print(storage.c_place())
+
+        if inp == "Review.count()":
+            print(storage.c_review())
+
+        if inp == "State.count()":
+            print(storage.c_state())
+
+        if inp == "BaseModel.count()":
+            print(storage.c_base())
+
+        if inp == "City.count()":
+            print(storage.c_city())
+
 
     def do_quit(self, line):
         """Quit command to exit the program"""
